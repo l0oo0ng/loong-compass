@@ -1,0 +1,22 @@
+# Validation environments and generated caches.
+work/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Credentials and secret-bearing files.
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+credentials.json
+secrets.json
+token.json
+
+# Machine-specific files.
+*.log
+Thumbs.db
+Desktop.ini

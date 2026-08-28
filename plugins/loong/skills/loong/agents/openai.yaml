@@ -1,0 +1,7 @@
+interface:
+  display_name: "loong"
+  short_description: "Evidence-first, risk-scaled task review"
+  default_prompt: "Use $loong to analyze this task and state assumptions, evidence, risks, and the next action."
+
+policy:
+  allow_implicit_invocation: true
