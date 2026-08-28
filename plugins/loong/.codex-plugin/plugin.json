@@ -1,6 +1,6 @@
 {
   "name": "loong",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Evidence-first reasoning and risk-scaled task orchestration for Codex.",
   "author": {
     "name": "l0oo0ng"
@@ -19,10 +19,12 @@
   "interface": {
     "displayName": "loong",
     "shortDescription": "Evidence-first, risk-scaled task review.",
-    "longDescription": "Applies first-principles decomposition, explicit fact and inference labels, adversarial review, and independent cross-review. Simple tasks stay concise; complex tasks use a structured multi-agent review and project contract. Coding work routes to the installed Karpathy and Superpowers skills.",
+    "longDescription": "Applies first-principles decomposition, explicit fact and inference labels, adversarial review, and independent cross-review. Simple tasks stay concise; complex tasks use a structured multi-agent review and project contract. Coding work can route to available Karpathy and Superpowers skills.",
     "developerName": "l0oo0ng",
     "category": "Productivity",
     "capabilities": [],
-    "defaultPrompt": "Use $loong to analyze this task and state the assumptions, evidence, risks, and next action."
+    "defaultPrompt": [
+      "Use $loong to analyze this task and state the assumptions, evidence, risks, and next action."
+    ]
   }
 }

@@ -2,6 +2,14 @@
 
 This protocol applies to every complex task. The orchestrator owns the final answer and does not outsource the decision.
 
+## Reviewer boundary
+
+If an agent is dispatched as a reviewer, it is a leaf node for that task. It must not invoke `$loong`, load this protocol again, dispatch another agent, or perform mutations. It returns only its assigned report and waits for the orchestrator.
+
+## Bounded execution
+
+The orchestrator sets a finite timeout for each first-pass and cross-review call, retries a transient failure at most once, and caps review depth at this single reviewer layer. If any required reviewer is missing after the retry, stop and report an incomplete review; never wait indefinitely or silently substitute a majority vote. Summarize reports before cross-review so each digest contains only claims, evidence, disagreements, and risks needed for the decision.
+
 ## 1. Normalize the brief
 
 Write a short brief containing: goal, known facts, unknowns, constraints, authorized actions, acceptance test, and deadline if one exists. Remove irrelevant personal data and redact credentials before dispatching any subtask. Never include API keys, access tokens, passwords, private keys, session cookies, or secret-bearing environment values in agent context, logs, examples, or artifacts.

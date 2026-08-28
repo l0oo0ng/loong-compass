@@ -11,15 +11,15 @@ license: MIT
 
 Produce a useful conclusion without hiding uncertainty. Start from the user's actual goal, test the premises, separate facts from inferences and opinions, and make the smallest sufficient recommendation. A confident tone never substitutes for evidence.
 
-The global-skill-router is upstream. If it already ran in this turn, do not run it again; otherwise invoke it before choosing additional skills when that capability is available.
+The global-skill-router is an optional upstream accelerator. If it already ran in this turn, do not run it again. If it is unavailable, use this skill's own complexity gate and explicit companion routing; do not claim that the full machine-wide skill index was searched.
 
 ## Complexity gate
 
-Treat a request as **simple** only when one obvious, reversible action or explanation is enough, no consequential external fact needs checking, and the acceptance condition is clear. Use one agent and return only the needed answer.
+Treat a request as **simple** only when one obvious, reversible action or explanation is enough, the facts are stable or immaterial to the decision, and the acceptance condition is clear. A routine lookup or small reversible edit stays simple even if it contains one ordinary date or number.
 
-Treat it as **complex** if any of these is present: ambiguous or conflicting requirements; multiple steps, files, or subsystems; external side effects or irreversible changes; source, date, person, or number verification; security, financial, legal, medical, or production impact; architectural trade-offs; or an explicit request for deep analysis, role-play, opposition, or cross-review.
+Treat it as **complex** if any of these is present: ambiguous or conflicting requirements; multiple dependent steps or subsystems; external side effects or irreversible changes; a consequential, disputed, time-sensitive, or high-uncertainty claim requiring source verification; security, financial, legal, medical, or production impact; architectural trade-offs; or an explicit request for deep analysis, role-play, opposition, or cross-review.
 
-For complex work, use the protocol in [references/review-protocol.md](references/review-protocol.md). It requires one orchestrator and three independent reviewers. If the runtime cannot provide multi-agent execution, stop and state that the required review could not be performed.
+For complex work, use the protocol in [references/review-protocol.md](references/review-protocol.md). It requires one orchestrator and three independent reviewers. If the runtime cannot provide multi-agent execution, stop and state that the required review could not be performed. A reviewer dispatched by that protocol is in review-only mode: it must not invoke `$loong`, run another review protocol, or spawn further agents.
 
 ## Five-dimensional project contract
 
