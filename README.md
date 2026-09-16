@@ -1,52 +1,53 @@
 # loong prompt
 
-`loong` is a Codex personal plugin for evidence-first reasoning and risk-scaled execution.
+[English](README.en.md)
 
-It combines four operating principles:
+> English: A personal Codex plugin for evidence-first reasoning and risk-scaled execution.
 
-- first-principles decomposition;
-- role-based review with explicit epistemic responsibilities;
-- strongest-counterargument analysis;
-- independent cross-review before consequential decisions.
+`loong` 将第一性原理、角色审查、最强反方论证与独立交叉审查组织为任务流程。
+简单、可逆任务保持简短；高影响任务要求明确证据、风险与执行边界。
+当前插件版本以清单为准，不把文档整理视为新功能发布。
 
-The plugin adapts to the task. A simple, reversible request stays concise and uses one agent. A complex request uses an orchestrator plus three independent reviewers, then a second cross-review pass. Coding work also routes to the installed `andrej-karpathy-skills` and `Superpowers` skills instead of copying their source.
+## 使用与安装
 
-## Use
+显式调用 `$loong`，或由支持的 Codex 运行时按任务选择。
+工程变更先明确目标、现状、范围、验收、执行模式五项契约；
+重要结论区分事实、推断、观点和未知。
 
-Invoke the skill explicitly with `$loong`, or let Codex select it for ambiguous, high-impact, multi-step, source-sensitive, or review-heavy requests.
-
-For project changes, expect a five-field contract: goal, current state, scope and boundaries, acceptance, and execution mode. Consequential claims are labeled as fact, inference, opinion, or unknown.
-
-## Install from this repository
-
-Install directly from the public Git marketplace:
+沿用仓库既有安装方式（本轮未重新安装插件）：
 
 ```text
 codex plugin marketplace add l0oo0ng/loong-prompt
 codex plugin add loong@loong-prompt
 ```
 
-For local development, use a quoted clone path:
+本地开发可将第一条的仓库参数改为带引号的克隆目录。
+仓库名、市场名与插件调用名保持不变。
 
-```text
-codex plugin marketplace add "<clone-directory>"
-codex plugin add loong@loong-prompt
-```
+## 依赖与运行限制
 
-The companion plugins `andrej-karpathy-skills` (tested 1.0.0) and `superpowers` (tested 6.2.0) are optional coding accelerators. If unavailable, loong keeps its built-in Karpathy invariants and reports the missing companion. The global-skill-router is also optional; loong's own complexity gate remains active without it. Complex tasks require a runtime with one orchestrator plus three reviewer agents and a second cross-review pass; loong stops rather than pretending this happened when that capability is absent.
+| 组件 | 定位 | 既有兼容记录 |
+|---|---|---|
+| Codex 插件运行时 | 必需，支持插件与 Skill | 本轮不重新安装 |
+| andrej-karpathy-skills | 可选编码辅助 | 1.0.0 |
+| superpowers | 可选编码辅助 | 6.2.0 |
+| global-skill-router | 可选路由 | 缺失时内建门禁仍生效 |
 
-## Data handling
+复杂任务需要一个编排者和三个审查者，并进行第二轮交叉审查；
+运行时不具备此能力时应停止并说明，不能假称完成多人审查。
+缺少可选编码插件时保留内建约束并报告缺失。
 
-Do not commit credentials, tokens, passwords, private keys, secret-bearing environment values, user-level personal marketplace state, local caches, or machine-specific absolute paths. The repository-local `.agents/plugins/marketplace.json` is intentionally tracked because it contains only portable relative paths required for installation. Run a three-pass redaction review before every push:
+## 结构与文档
 
-1. inspect the file list and suspicious filenames;
-2. scan all content for credential patterns, secret words, and local identity/path leakage;
-3. scan the complete Git history and final diff, then manually review every match and the archive to be pushed.
+- `plugins/loong/`：插件清单、Skill 和配套参考资料。
+- `.agents/plugins/marketplace.json`：可移植的仓库级市场入口，应继续跟踪。
+- [文档与安装排错](docs/README.md)
+- [发布流程](docs/release-process.md) / [变更日志](CHANGELOG.md)
+- [贡献政策](CONTRIBUTING.md)：个人维护，使用 Issues 提建议，不改变既有 PR 政策。
 
-## Contributions
+## 数据与许可
 
-This personal repository uses Issues for suggestions. It does not grant collaborators write access. GitHub public repositories cannot technically prevent fork pull requests, so pull requests may be closed under the policy in `CONTRIBUTING.md`.
-
-## License
-
-MIT. See `LICENSE`.
+不提交凭据、用户级市场状态、私人路径和运行缓存。
+提交前检查路径、内容及完整历史中的敏感信息，只输出命中位置，不输出秘密值。
+仓库级相对路径市场清单与用户级私人配置必须区分。
+[MIT License](LICENSE) 保持不变；第三方辅助插件不复制到本仓库。
