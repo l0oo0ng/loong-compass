@@ -1,12 +1,12 @@
 {
   "name": "loong",
-  "version": "0.1.1",
+  "version": "0.1.2-rc.1",
   "description": "Evidence-first reasoning and risk-scaled task orchestration for Codex.",
   "author": {
     "name": "l0oo0ng"
   },
-  "homepage": "https://github.com/l0oo0ng/loong-prompt",
-  "repository": "https://github.com/l0oo0ng/loong-prompt",
+  "homepage": "https://github.com/l0oo0ng/loong-compass",
+  "repository": "https://github.com/l0oo0ng/loong-compass",
   "license": "MIT",
   "keywords": [
     "first-principles",

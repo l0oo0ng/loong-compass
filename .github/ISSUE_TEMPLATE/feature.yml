@@ -1,0 +1,10 @@
+name: "建议 / Feature"
+description: "描述需求、使用场景和验收目标。 / Describe the need, use case and acceptance criteria."
+body:
+  - type: textarea
+    id: details
+    attributes:
+      label: "详情 / Details"
+      description: "描述需求、使用场景和验收目标。 / Describe the need, use case and acceptance criteria."
+    validations:
+      required: true

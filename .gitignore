@@ -20,3 +20,7 @@ token.json
 *.log
 Thumbs.db
 Desktop.ini
+
+# Versioned delivery build outputs
+/release_assets/
+/repository-check-results/

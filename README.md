@@ -1,3 +1,62 @@
+# Loong Compass · 证据优先任务编排
+
+[简体中文](README.md) · [English](README.en.md)
+
+**0.1.2-rc.1** · Codex plugin / Python checks
+
+[![Repository checks](https://github.com/l0oo0ng/loong-compass/actions/workflows/repository.yml/badge.svg)](https://github.com/l0oo0ng/loong-compass/actions/workflows/repository.yml)
+
+本仓库提供以下能力，当前版本的验证范围与限制见下方说明。
+
+## 功能概览
+
+| 能力 |
+|---|
+| 事实、推断与风险分级 |
+| 任务审查与执行边界 |
+| 可移植插件与市场清单 |
+
+## 项目结构
+
+- [plugins](plugins)
+- [scripts](scripts)
+- [LICENSE](LICENSE)
+- [docs](docs)
+
+## 安装与使用
+
+```text
+codex plugin marketplace add l0oo0ng/loong-compass
+codex plugin add loong@loong-prompt
+```
+
+[Quick start / 快速开始](docs/repository-standardization/QUICK_START.md)
+
+## 开发与验证
+
+```text
+python scripts/check_version.py
+python -m unittest discover -s scripts -p "test_*.py"
+```
+
+## 下载与发布
+
+[Candidate v0.1.2-rc.1](https://github.com/l0oo0ng/loong-compass/releases/tag/v0.1.2-rc.1) · [All releases](https://github.com/l0oo0ng/loong-compass/releases) · [Actions](https://github.com/l0oo0ng/loong-compass/actions)
+
+候选包仅在检查成功后发布；尚未发布时请查看 Actions 状态。既有稳定版保持不变。
+
+## 能力边界与安全
+
+- 需要宿主提供对应工具与多角色审查能力；本轮只验证包结构和版本，不声称真实 Agent 行为已全面验收。
+
+仓库可见性和既有许可证保持不变；本文档不授予额外使用许可。
+
+[贡献 / Contributing](CONTRIBUTING.md) · [安全 / Security](SECURITY.md) · [发布流程 / Releases](docs/repository-standardization/RELEASE.md)
+
+<!-- preserved-history -->
+<details>
+<summary>原项目指南与历史说明（版本状态以本页上方为准）</summary>
+
 # loong prompt
 
 [English](README.en.md)
@@ -51,3 +110,6 @@ codex plugin add loong@loong-prompt
 提交前检查路径、内容及完整历史中的敏感信息，只输出命中位置，不输出秘密值。
 仓库级相对路径市场清单与用户级私人配置必须区分。
 [MIT License](LICENSE) 保持不变；第三方辅助插件不复制到本仓库。
+
+
+</details>
