@@ -1,0 +1,10 @@
+name: "缺陷 / Bug"
+description: "描述实际行为、复现步骤、版本和期望结果；不要附私人数据。 / Describe reproduction, version and expected behavior without private data."
+body:
+  - type: textarea
+    id: details
+    attributes:
+      label: "详情 / Details"
+      description: "描述实际行为、复现步骤、版本和期望结果；不要附私人数据。 / Describe reproduction, version and expected behavior without private data."
+    validations:
+      required: true

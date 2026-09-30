@@ -1,53 +1,54 @@
-# loong prompt
+# Loong Compass · Evidence-First Task Orchestration
 
-[简体中文](README.md)
+[简体中文](README.md) · [English](README.en.md)
 
-`loong` is a personal Codex plugin for evidence-first reasoning and risk-scaled execution.
-It combines first-principles decomposition, role-based review, strongest-counterargument
-analysis and independent cross-review. Simple reversible tasks stay concise.
+**0.1.2-rc.1** · Codex plugin / Python checks
 
-## Use and install
+[![Repository checks](https://github.com/l0oo0ng/loong-compass/actions/workflows/repository.yml/badge.svg)](https://github.com/l0oo0ng/loong-compass/actions/workflows/repository.yml)
 
-Invoke `$loong` explicitly or let a supported Codex runtime select the skill.
-Project work starts with five fields: goal, current state, scope, acceptance and execution mode.
-Distinguish facts, inferences, opinions and unknowns.
+This repository provides the capabilities below. Current evidence and limitations are stated explicitly.
 
-Existing installation commands are retained; installation was not repeated in this documentation pass:
+## Capabilities
+
+| Capability |
+|---|
+| Facts, inferences and risk-scaled execution |
+| Task review and execution boundaries |
+| Portable plugin and marketplace manifests |
+
+## Project structure
+
+- [plugins](plugins)
+- [scripts](scripts)
+- [LICENSE](LICENSE)
+- [docs](docs)
+
+## Install and use
 
 ```text
-codex plugin marketplace add l0oo0ng/loong-prompt
+codex plugin marketplace add l0oo0ng/loong-compass
 codex plugin add loong@loong-prompt
 ```
 
-For local development, replace the repository argument with a quoted clone directory.
-The marketplace name and `$loong` invocation remain unchanged.
+[Quick start / 快速开始](docs/repository-standardization/QUICK_START.md)
 
-## Compatibility and limits
+## Development and verification
 
-Optional coding companions: `andrej-karpathy-skills` (previously tested 1.0.0)
-and `superpowers` (previously tested 6.2.0).
-Without them, loong retains its internal constraints and reports unavailable companions.
-The global-skill-router is optional; the plugin's own complexity gate remains active.
+```text
+python scripts/check_version.py
+python -m unittest discover -s scripts -p "test_*.py"
+```
 
-Complex tasks require an orchestrator, three independent reviewers and a second cross-review pass.
-If the runtime cannot provide these capabilities, stop and report the limitation instead
-of claiming that independent reviews occurred.
+## Downloads and releases
 
-## Layout and maintenance
+[Candidate v0.1.2-rc.1](https://github.com/l0oo0ng/loong-compass/releases/tag/v0.1.2-rc.1) · [All releases](https://github.com/l0oo0ng/loong-compass/releases) · [Actions](https://github.com/l0oo0ng/loong-compass/actions)
 
-- `plugins/loong/`: plugin manifest, skill and reference documents.
-- `.agents/plugins/marketplace.json`: portable repository-local marketplace metadata.
-- [Documentation and troubleshooting](docs/README.md)
-- [Release process](docs/release-process.md)
-- [Changelog](CHANGELOG.md)
-- [Contribution policy](CONTRIBUTING.md)
+Candidate packages are published only after checks succeed. Before then, use the Actions page for status. Existing stable releases remain unchanged.
 
-This is a personal project. Issues are the suggestion channel; this pass does not
-change the existing policy on pull requests or grant collaborators write access.
+## Limits and security
 
-## Data handling and license
+- Host capabilities are required; package and version checks do not establish full live-agent behavioral acceptance.
 
-Never commit credentials, user-level marketplace state, personal absolute paths or caches.
-Review filenames, content and complete history before pushing; do not print matched secret values.
-Repository-local relative marketplace metadata is intentionally tracked.
-The [MIT license](LICENSE) is unchanged. Companion plugin sources are not copied.
+Repository visibility and existing licenses are unchanged. No additional license is granted by this documentation.
+
+[贡献 / Contributing](CONTRIBUTING.md) · [安全 / Security](SECURITY.md) · [发布流程 / Releases](docs/repository-standardization/RELEASE.md)
